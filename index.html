@@ -62,9 +62,6 @@
       color: #2563eb;
       font-weight: inherit;
     }
-      color: #1e3a8a;
-      font-weight: 500;
-    }
     .hero {
       display: flex;
       flex-wrap: wrap;
@@ -293,6 +290,61 @@
       border-bottom: 1px solid #eef2f6;
     }
     .crisis-table tr:last-child td { border-bottom: none; }
+
+    /* ======== iPhone SE / 12 mini / 15 (≤430px) ======== */
+    @media (max-width: 430px) {
+      body { padding: 0.8rem 0.5rem; }
+      .container { padding: 1.2rem 1rem; border-radius: 20px; }
+
+      h1 { font-size: 1.8rem; }
+      .subhead { font-size: 1rem; padding-left: 0.8rem; }
+      h2 { font-size: 1.35rem; margin: 1.6rem 0 0.6rem 0; }
+
+      .hero { gap: 1.2rem; margin: 1rem 0 0.5rem 0; }
+      .hero-img { flex: 0 0 100px; }
+      .hero-img img { max-width: 100px; border-width: 3px; }
+      .hero-text .meta { font-size: 0.85rem; }
+      .hero-text .meta span { margin-right: 0.6rem; }
+
+      .comp-item { padding: 0.9rem 1rem; border-radius: 12px; }
+      .comp-item strong { font-size: 1rem; }
+      .comp-item em { font-size: 0.82rem; }
+      .comp-item ul li { font-size: 0.9rem; }
+
+      .case { padding: 1rem 1.1rem; border-radius: 14px; margin: 0.8rem 0; }
+      .case h4 { font-size: 1.05rem; }
+      .case p { font-size: 0.9rem; }
+
+      .crisis-block { padding: 1.2rem 1rem; border-radius: 14px; }
+      .crisis-table { font-size: 0.8rem; }
+      .crisis-table th, .crisis-table td { padding: 0.45rem 0.5rem; }
+
+      .hobby-card { padding: 0.9rem 1rem; border-radius: 14px; }
+      .hobby-card h4 { font-size: 0.95rem; }
+      .hobby-card p { font-size: 0.88rem; }
+
+      .contact-block { padding: 1.2rem 1rem; border-radius: 18px; flex-direction: column; gap: 1rem; text-align: center; }
+      .contact-block .info { font-size: 0.95rem; }
+      .contact-block > div { display: flex; gap: 0.6rem; justify-content: center; }
+      .btn { padding: 0.6rem 1.5rem; font-size: 0.9rem; }
+      .btn-outline { padding: 0.5rem 1.3rem; font-size: 0.9rem; }
+
+      .footer-note { font-size: 0.78rem; margin-top: 1.5rem; padding-top: 1.2rem; }
+
+      blockquote { font-size: 0.9rem; padding: 0.6rem 1rem; }
+      table { font-size: 0.82rem; }
+      th, td { padding: 0.5rem 0.5rem; }
+    }
+
+    /* ======== iPhone 15 Pro Max / Pixel (≤393px) ======== */
+    @media (max-width: 393px) {
+      h1 { font-size: 1.55rem; }
+      .subhead { font-size: 0.9rem; }
+      h2 { font-size: 1.2rem; }
+
+      .hero-img { flex: 0 0 80px; }
+      .hero-img img { max-width: 80px; }
+    }
   </style>
 </head>
 <body>
@@ -340,10 +392,10 @@
       <strong>🏗️ Производство и строительный контроль</strong>
       <em>«Знаю технологию изнутри. Никто не обманет меня на объекте»</em>
       <ul>
-        <li>Монтаж ВЛ 110 кВ (фундаменты, металл, проводка)</li>
+        <li>Монтаж ВЛ 110 кВ (фундаменты, металл, провода)</li>
         <li>Электрохаб Лефортовский (строительство объекта под ключ)</li>
         <li>ЦОД (Прокладка КЛ 10кВ и строительство РП 10кВ)</li>
-        <li>Приёмка работ от субподрядчиков</li>
+
       </ul>
     </div>
     <div class="comp-item">
@@ -361,8 +413,8 @@
       <ul>
         <li>Вахта: Ноябрьск, Магадан — городок, ОТ и ТБ</li>
         <li>Координация субподрядчиков</li>
-        <li>Команды от 50 до 100+ человек</li>
-        <li>Мотивация и контроль в жёсткие сроки</li>
+        <li>Команды до 50 человек</li>
+
       </ul>
     </div>
     <div class="comp-item">
@@ -382,9 +434,9 @@
   <div class="case">
     <h4>🌨️ Управление строительством на Севере</h4>
     <div class="loc">📍 Ноябрьск · Магадан, 2021–2023</div>
-    <p><strong>Задача:</strong> строить в вечной мерзлоте, морозах −50 °C, вахтовым методом.</p>
-    <p><strong>Решение:</strong> полный цикл вахтового городка, планирование по климатическим окнам, логистика, мотивация.</p>
-    <p class="result">✅ Все объекты сданы в срок · ✅ 0 травм · ✅ Текучесть −30%</p>
+    <p><strong>Задача:</strong> строить в вечной мерзлоте, морозах до−50 °C, вахтовым методом.</p>
+    <p><strong>Решение:</strong> Полная ответственность за жизнедеятельность городка: от быта до логистики. Обеспечил бесперебойное выполнение плана работ в экстремальных условиях. Команда — до 50 человек.</p>
+    <p class="result">✅ Все объекты сданы в срок · ✅ 0 травм</p>
   </div>
 
   <div class="case">
