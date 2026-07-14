@@ -1,1 +1,533 @@
-hello world
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Руслан Байрамкулов — Управление проектами</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background: #f4f7fa;
+      font-family: 'Segoe UI', Roboto, system-ui, sans-serif;
+      color: #1e2a3a;
+      line-height: 1.6;
+      padding: 2rem 1rem;
+    }
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      background: #ffffff;
+      border-radius: 32px;
+      box-shadow: 0 25px 50px -12px rgba(0,0,0,0.15);
+      padding: 2.5rem 2.8rem;
+    }
+    @media (max-width: 700px) {
+      .container { padding: 1.5rem; }
+    }
+    h1 {
+      font-size: 2.6rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      margin-top: 0.2rem;
+    }
+    h1 span { color: #2563eb; }
+    .subhead {
+      font-size: 1.2rem;
+      color: #334155;
+      font-weight: 400;
+      margin-top: 0.3rem;
+      border-left: 4px solid #2563eb;
+      padding-left: 1.2rem;
+    }
+    h2 {
+      font-size: 1.8rem;
+      font-weight: 650;
+      margin: 2.2rem 0 0.8rem 0;
+      letter-spacing: -0.01em;
+      border-bottom: 3px solid #e9edf2;
+      padding-bottom: 0.5rem;
+    }
+    .highlight {
+      background: #f0f4ff;
+      padding: 0.1rem 0.4rem;
+      border-radius: 6px;
+      color: #1e3a8a;
+      font-weight: 500;
+    }
+    .hero {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 2.5rem;
+      margin: 1.8rem 0 1rem 0;
+    }
+    .hero-img {
+      flex: 0 0 160px;
+    }
+    .hero-img img {
+      width: 100%;
+      max-width: 160px;
+      border-radius: 50%;
+      border: 4px solid #2563eb;
+      box-shadow: 0 12px 24px -8px rgba(37,99,235,0.25);
+      aspect-ratio: 1/1;
+      object-fit: cover;
+      background: #eef2f6;
+    }
+    .hero-text { flex: 1; }
+    .hero-text .meta {
+      color: #475569;
+      font-size: 1rem;
+      margin-top: 0.3rem;
+    }
+    .hero-text .meta span { margin-right: 1.4rem; }
+    @media (max-width: 550px) {
+      .hero { flex-direction: column; align-items: center; text-align: center; }
+      .hero-text .meta span { display: inline-block; margin: 0 0.5rem; }
+    }
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.2rem 2rem;
+      margin: 0.8rem 0 0.2rem 0;
+    }
+    @media (max-width: 600px) {
+      .grid-2 { grid-template-columns: 1fr; }
+    }
+    .comp-item {
+      background: #f8faff;
+      border-radius: 16px;
+      padding: 1.2rem 1.5rem;
+      border-left: 4px solid #2563eb;
+    }
+    .comp-item strong {
+      display: block;
+      font-size: 1.1rem;
+      margin-bottom: 0.25rem;
+      color: #0b1e33;
+    }
+    .comp-item em {
+      font-size: 0.92rem;
+      color: #475569;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+    .comp-item ul {
+      list-style: none;
+      padding-left: 0;
+      margin: 0;
+    }
+    .comp-item ul li {
+      padding: 0.2rem 0 0.2rem 1.3rem;
+      position: relative;
+    }
+    .comp-item ul li::before {
+      content: "▹";
+      position: absolute;
+      left: 0;
+      color: #2563eb;
+      font-weight: 700;
+    }
+    .case {
+      background: #fafcff;
+      border-radius: 20px;
+      padding: 1.3rem 1.8rem;
+      margin: 1.2rem 0;
+      border: 1px solid #e9edf2;
+    }
+    .case h4 {
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: #0b1e33;
+    }
+    .case .loc {
+      font-size: 0.85rem;
+      color: #64748b;
+      margin-bottom: 0.4rem;
+    }
+    .case p { margin: 0.35rem 0; }
+    .case .result {
+      color: #0b5e3b;
+      font-weight: 500;
+    }
+    .table-wrap {
+      overflow-x: auto;
+      margin: 1rem 0 0.2rem 0;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.92rem;
+    }
+    th {
+      text-align: left;
+      background: #f1f5f9;
+      padding: 0.7rem 0.8rem;
+      font-weight: 600;
+      color: #1e293b;
+    }
+    td {
+      padding: 0.6rem 0.8rem;
+      border-bottom: 1px solid #eef2f6;
+    }
+    tr:last-child td { border-bottom: none; }
+    .hobby-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.2rem;
+      margin: 0.8rem 0;
+    }
+    @media (max-width: 600px) {
+      .hobby-grid { grid-template-columns: 1fr; }
+    }
+    .hobby-card {
+      background: #f8faff;
+      border-radius: 18px;
+      padding: 1.2rem 1.5rem;
+    }
+    .hobby-card h4 {
+      font-size: 1.1rem;
+      margin-bottom: 0.2rem;
+    }
+    .hobby-card .emoji { font-size: 1.6rem; margin-right: 0.5rem; }
+    .contact-block {
+      background: #f0f6ff;
+      border-radius: 24px;
+      padding: 1.8rem 2rem;
+      margin-top: 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .contact-block .info { font-size: 1.05rem; }
+    .contact-block .info strong { display: inline-block; min-width: 70px; }
+    .btn {
+      background: #2563eb;
+      color: #fff;
+      padding: 0.7rem 2rem;
+      border-radius: 60px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      display: inline-block;
+      transition: 0.2s;
+      border: none;
+      cursor: pointer;
+    }
+    .btn:hover {
+      background: #1d4ed8;
+      transform: scale(1.02);
+    }
+    .btn-outline {
+      background: transparent;
+      color: #2563eb;
+      border: 2px solid #2563eb;
+      padding: 0.6rem 1.8rem;
+    }
+    .btn-outline:hover {
+      background: #2563eb;
+      color: #fff;
+    }
+    .footer-note {
+      text-align: center;
+      margin-top: 2.2rem;
+      color: #94a3b8;
+      font-size: 0.85rem;
+      border-top: 1px solid #e9edf2;
+      padding-top: 1.8rem;
+    }
+    blockquote {
+      font-style: italic;
+      color: #334155;
+      border-left: 4px solid #94a3b8;
+      padding-left: 1.2rem;
+      margin: 0.8rem 0;
+      background: #f8faff;
+      padding: 0.8rem 1.5rem;
+      border-radius: 12px;
+    }
+    .crisis-block {
+      background: #f0f6ff;
+      border-radius: 20px;
+      padding: 1.8rem 2rem;
+      margin: 1.2rem 0;
+      border-left: 5px solid #2563eb;
+    }
+    .crisis-block h3 {
+      margin-top: 0;
+      color: #0b1e33;
+    }
+    .crisis-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 0.8rem 0;
+      font-size: 0.92rem;
+      background: #ffffff;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    .crisis-table th {
+      background: #e9edf2;
+      text-align: left;
+      padding: 0.6rem 0.8rem;
+      font-weight: 600;
+      color: #1e293b;
+    }
+    .crisis-table td {
+      padding: 0.6rem 0.8rem;
+      border-bottom: 1px solid #eef2f6;
+    }
+    .crisis-table tr:last-child td { border-bottom: none; }
+  </style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- ======== ШАПКА ======== -->
+  <div class="hero">
+    <div class="hero-img">
+      <img src="https://clicker-chess.duckdns.org/static/logo.webp" alt="Руслан Байрамкулов">
+    </div>
+    <div class="hero-text">
+      <h1>Руслан <span>Байрамкулов</span></h1>
+      <div class="subhead">Управление проектами в энергетическом и инфраструктурном строительстве</div>
+      <div class="meta">
+        <span>📍 Москва</span>
+        <span>🎂 35 лет</span>
+        <span>⏳ 15 лет опыта</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======== О СЕБЕ ======== -->
+  <h2>Обо мне</h2>
+  <p><strong>Я начал карьеру электромонтёром-линейщиком</strong> в Калмыкии — собирал опоры ВЛ 110 кВ руками. Сейчас я управляю сложными проектами в Москве и отвечаю за миллионные бюджеты.</p>
+  <p>Моё главное преимущество — <span class="highlight">системный взгляд</span>. Я знаю стройку до мельчайших деталей, но мыслю как предприниматель. Прошёл Север, цифровизацию и готов брать на себя ответственность за строительство «под ключ».</p>
+
+  <p><strong>В моей биографии был этап, который называют «кризисом».</strong> 2014–2018 годы. Я ушёл из найма и <span class="highlight">ушёл в самообразование</span> — одновременно пробовал себя в совершенно разных сферах: писал код, продавал строительные материалы, работал в такси и брал любые подработки, чтобы держать себя в тонусе.</p>
+
+  <p><em>Это был не провал. Это была школа, которая сделала меня антихрупким.</em></p>
+
+  <p>Я не просто работал — я учился. Каждая сфера дала мне новый инструмент: IT — цифровое мышление, продажи — коммерческую жилку, такси — психологию людей и стрессоустойчивость. Я научился продавать, договариваться, видеть бизнес с разных сторон и не бояться падений.</p>
+
+  <p>Именно этот опыт позволил мне вернуться в Москву и взять новый уровень ответственности. Сегодня я спокойно вхожу в кабинет любого заказчика, потому что знаю цену каждому рублю и не боюсь сложных переговоров.</p>
+
+  <blockquote>
+    «В беге, как и в строительстве, важен не старт, а финиш. Я всегда дохожу до конца. И веду за собой команду.»
+  </blockquote>
+
+  <!-- ======== КОМПЕТЕНЦИИ ======== -->
+  <h2>Ключевые компетенции</h2>
+
+  <div class="grid-2">
+    <div class="comp-item">
+      <strong>🏗️ Производство и строительный контроль</strong>
+      <em>«Знаю технологию изнутри. Никто не обманет меня на объекте»</em>
+      <ul>
+        <li>Монтаж ВЛ 110 кВ (фундаменты, металл, проводка)</li>
+        <li>Строительство автодорог (опыт М12)</li>
+        <li>Электрозаправки, ЦОД — объекты I категории</li>
+        <li>Приёмка работ от субподрядчиков</li>
+      </ul>
+    </div>
+    <div class="comp-item">
+      <strong>📋 Документация, бюджеты, финансы</strong>
+      <em>«Защищаю каждый рубль. Умею превращать работы в деньги»</em>
+      <ul>
+        <li>Полный цикл ПТО: КС‑2, КС‑3, исполнительная</li>
+        <li>Защита объёмов перед заказчиком</li>
+        <li>Юридическое образование — договорная работа</li>
+        <li>Планирование графиков и контроль бюджетов</li>
+      </ul>
+    </div>
+    <div class="comp-item">
+      <strong>👥 Управление командами и проектами</strong>
+      <em>«Управлял в экстремальных условиях Севера»</em>
+      <ul>
+        <li>Вахта: Ноябрьск, Магадан — городок, ОТ и ТБ</li>
+        <li>Координация субподрядчиков</li>
+        <li>Команды от 50 до 100+ человек</li>
+        <li>Мотивация и контроль в жёсткие сроки</li>
+      </ul>
+    </div>
+    <div class="comp-item">
+      <strong>💻 Цифровые технологии и предпринимательство</strong>
+      <em>«Моё супер-оружие — я понимаю маркетинг и продажи»</em>
+      <ul>
+        <li>Создание и продвижение сайтов</li>
+        <li>Настройка рекламы, целевой трафик</li>
+        <li>Полный цикл продаж стройматериалов</li>
+        <li>Вижу связь качества строительства с прибылью</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ======== КЕЙСЫ ======== -->
+  <h2>Ключевые проекты</h2>
+
+  <div class="case">
+    <h4>🌨️ Управление строительством на Севере</h4>
+    <div class="loc">📍 Ноябрьск · Магадан, 2021–2023</div>
+    <p><strong>Задача:</strong> строить в вечной мерзлоте, морозах −50 °C, вахтовым методом.</p>
+    <p><strong>Решение:</strong> полный цикл вахтового городка, планирование по климатическим окнам, логистика, мотивация.</p>
+    <p class="result">✅ Все объекты сданы в срок · ✅ 0 травм · ✅ Текучесть −30%</p>
+  </div>
+
+  <div class="case">
+    <h4>🏗️ Трасса М12</h4>
+    <div class="loc">📍 Москва, 2024</div>
+    <p><strong>Задача:</strong> сдать федеральный объект при госнадзоре и множестве субподрядчиков.</p>
+    <p><strong>Решение:</strong> единый стандарт документации, ежедневный контроль, защита интересов генподрядчика.</p>
+    <p class="result">✅ Все этапы сданы без замечаний · ✅ Штрафы отсутствуют</p>
+  </div>
+
+  <div class="case">
+    <h4>⚡ Электрохаб «Лефортовский»</h4>
+    <div class="loc">📍 ул. 1-я Энтузиастов, вл.14, г. Москва</div>
+    <p><strong>Задача:</strong> строительство ЭЗС на 10 портов (CCS2, GB/T DC, NACS) мощностью 240 кВт.</p>
+    <p><strong>Решение:</strong> полный цикл от монтажа до ввода в эксплуатацию. Совокупная мощность станций — 1,2 МВт.</p>
+    <p class="result">✅ Ввод в эксплуатацию · ✅ Выполнено в срок</p>
+  </div>
+
+  <div class="case">
+    <h4>📡 Прокладка линий 10 кВ для ЦОД</h4>
+    <div class="loc">📍 Москва, 2026 — в процессе</div>
+    <p><strong>Задача:</strong> электроснабжение I категории в сжатые сроки с минимальными допусками.</p>
+    <p><strong>Решение:</strong> двойной контроль качества, координация узкоспециализированных бригад.</p>
+  </div>
+
+  <!-- ======== ШКОЛА АНТИХРУПКОСТИ ======== -->
+  <h2>🌪️ 2014–2018: Моя школа антихрупкости</h2>
+  <p style="color:#475569; margin-top:-0.2rem;"><em>«Я не боюсь кризисов. Я их прошел и стал сильнее.»</em></p>
+
+  <div class="crisis-block">
+    <p style="margin-top:0;"><strong>В 2014 году я ушёл из стабильного найма и ушёл в самообразование.</strong> Рынок менялся, и я решил, что должен научиться зарабатывать сам, без бейджика и должности. Эти четыре года стали моей главной бизнес-школой — я учился не по учебникам, а через реальные проекты и ошибки.</p>
+
+    <table class="crisis-table">
+      <thead>
+        <tr><th>Сфера</th><th>Что делал</th><th>Что дало</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>💻 Веб-разработка и маркетинг</strong></td>
+          <td>Создавал сайты с нуля, настраивал рекламные кампании, привлекал клиентов</td>
+          <td>Цифровое мышление, понимание того, как работает привлечение клиентов</td>
+        </tr>
+        <tr>
+          <td><strong>🏗️ Продажи стройматериалов</strong></td>
+          <td>Полный цикл: закупка, логистика, переговоры с поставщиками, реализация</td>
+          <td>Коммерческая жилка, навыки переговоров, финансовое планирование</td>
+        </tr>
+        <tr>
+          <td><strong>🚖 Такси и подработки</strong></td>
+          <td>20–30 незнакомых людей в день, конфликты, разные социальные слои</td>
+          <td>Понимание людей на 360°, стрессоустойчивость, умение находить общий язык с кем угодно</td>
+        </tr>
+        <tr>
+          <td><strong>📚 Самообразование</strong></td>
+          <td>Книги, курсы, новые навыки, осознанное развитие</td>
+          <td>Системный подход к росту, дисциплина, умение учиться самостоятельно</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p><strong>Главные уроки этого этапа:</strong></p>
+    <ul style="margin:0.3rem 0 0 1.2rem; color:#1e2a3a;">
+      <li>Я перестал бояться, что «что-то пойдёт не так»</li>
+      <li>Я научился находить выход из любой ситуации</li>
+      <li>Я понял цену денег и времени</li>
+      <li>Я увидел бизнес с разных сторон: продажи, цифра, производство, сервис</li>
+      <li>Я научился учиться — это главный навык 21 века</li>
+      <li>Я стал <span class="highlight">антихрупким</span> — падения делают меня только сильнее</li>
+    </ul>
+
+    <blockquote style="margin-top:1rem; background:#ffffff;">
+      «Сегодня я спокойно вхожу в кабинет любого заказчика, потому что водил такси в 3 часа ночи и общался с людьми, у которых не было денег даже на поездку. Я знаю цену каждому рублю. И я не боюсь сложных переговоров. А ещё я умею учиться — и это даёт мне уверенность, что я справлюсь с любым вызовом.»
+    </blockquote>
+  </div>
+
+  <!-- ======== КАРЬЕРНЫЙ ТРЕК ======== -->
+  <h2>Карьерный трек</h2>
+  <p style="color:#475569; margin-top:-0.2rem;"><em>Здесь я не просто менял компании — я наращивал уровень ответственности</em></p>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>Годы</th><th>Компания / Деятельность</th><th>Роль</th><th>Локация</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>2010–2014</td><td>ОАО «СКЭРК»</td><td>Электромонтёр → Нач. ПТО</td><td>Калмыкия<br>Сочи</td></tr>
+        <tr><td>2014–2018</td><td>Самостоятельность</td><td>Веб-разработка · Продажи стройматериалов · Такси · Самообразование</td><td>КЧР</td></tr>
+        <tr><td>2018–2021</td><td>ООО «Жилстройинжиниринг»</td><td>Инженер ПТО</td><td>Москва</td></tr>
+        <tr><td>2021–2023</td><td>ООО «Строй Газ Инвест»</td><td>Начальник обособленного подразделения</td><td>Ноябрьск<br>Магадан</td></tr>
+        <tr><td>2024</td><td>ООО «ГИДРОПРОМСТРОЙ»</td><td>Начальник ПТО</td><td>Москва</td></tr>
+        <tr><td>2024–н.в.</td><td>ООО «ИДЖЭНЕРГО»</td><td>Ведущий инженер ПТО → Руководитель проектов</td><td>Москва</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ======== ОБРАЗОВАНИЕ ======== -->
+  <h2>Образование</h2>
+  <p><strong>Институт государственного администрирования</strong> (г. Москва)<br>
+  Высшее образование по специальности «Юриспруденция»</p>
+
+  <!-- ======== ЗА ПРЕДЕЛАМИ СТРОЙКИ ======== -->
+  <h2>За пределами стройки</h2>
+  <p style="color:#475569; margin-top:-0.2rem;"><em>«Чтобы управлять сложными проектами, нужно держать в тонусе и голову, и тело»</em></p>
+
+  <div class="hobby-grid">
+    <div class="hobby-card">
+      <h4><span class="emoji">📚</span> Чтение — 30+ книг в год</h4>
+      <p>Система, а не хобби. Бизнес-стратегии, биографии, восточная философия. <span class="highlight">«Искусство войны»</span> Сунь-цзы изменило мой подход к управлению.</p>
+    </div>
+    <div class="hobby-card">
+      <h4><span class="emoji">🏃</span> Бег — 5–10 км, 3–4 раза в неделю</h4>
+      <p>Медитация и проверка характера. Учит держать темп, когда тяжело, и не сбавлять до финиша.</p>
+    </div>
+    <div class="hobby-card">
+      <h4><span class="emoji">🗣️</span> Переговорный кружок</h4>
+      <p>Офлайн-встречи по игре «Защитись. Договорись. Насладись» (Альберт Сафин). Тренирую речевые крючки: распознаю манипуляции, снимаю давление, перехватываю инициативу. Живое общение и безопасная среда для ошибок — прокачиваю навыки, которые применяю в переговорах с заказчиками и подрядчиками.</p>
+    </div>
+    <div class="hobby-card">
+      <h4><span class="emoji">👷</span> Наставничество инженера ПТО</h4>
+      <p>Системная передача опыта, а не разовые консультации. Веду учеников от монтажников до инженеров на своих реальных объектах энергетики в Москве. Разбираем документацию: акты, КС‑2, КС‑3, журналы, исполниловку. Учу читать чертежи, считать объёмы, работать в Excel и AutoCAD. Домашние задания проверяю лично, ошибки разбираем до полного понимания. Провожу тренировочные собеседования — готовлю к реальным вопросам HR и начальников ПТО. Сам процесс обучения держит меня в тонусе: структурирую знания, вижу слабые места в своих же алгоритмах, учусь объяснять сложное простым языком.</p>
+    </div>
+
+  </div>
+
+  <!-- ======== Я В ПОИСКЕ НОВОГО МАСШТАБА ======== -->
+  <h2>Я в поиске нового масштаба</h2>
+  <p>Я готов к сотрудничеству с девелоперскими и инфраструктурными компаниями, которым нужен надёжный руководитель проектов.</p>
+  <p><strong>Мой запрос:</strong> операционное управление строительством, возможность влиять на стратегию и результаты бизнеса. Я пришёл сюда, чтобы расти. Приходите — построим что-то значимое вместе.</p>
+
+  <!-- ======== КОНТАКТЫ ======== -->
+  <div class="contact-block">
+    <div class="info">
+      <strong>📞</strong> +7-928-389-99-98<br>
+      <strong>📧</strong> vrz999@mail.ru
+    </div>
+    <div>
+      <a href="tel:+79283899998" class="btn" style="margin-right:0.6rem;">Позвонить</a>
+      <a href="mailto:vrz999@mail.ru" class="btn btn-outline">Написать</a>
+    </div>
+  </div>
+
+  <blockquote style="border-left-color:#2563eb; background:#f0f6ff; margin-top:1.2rem;">
+    «Если вам интересно, что я читаю сейчас, или хотите попасть на мой переговорный кружок — пишите. Я всегда открыт для новых лиц в моём профессиональном окружении.»
+  </blockquote>
+
+  <div class="footer-note">
+    Руслан Байрамкулов · Управление проектами · 2026
+  </div>
+
+</div>
+
+</body>
+</html>
