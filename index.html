@@ -165,6 +165,9 @@
       color: #0b5e3b;
       font-weight: 500;
     }
+    .case .result span + span::before {
+      content: " · ";
+    }
     .table-wrap {
       overflow-x: auto;
       margin: 1rem 0 0.2rem 0;
@@ -374,6 +377,8 @@
       .case { padding: 1rem 1.1rem; border-radius: 14px; margin: 0.8rem 0; }
       .case h4 { font-size: 1.05rem; }
       .case p { font-size: 0.88rem; }
+      .case .result { display: flex; flex-direction: column; gap: 0.15rem; }
+      .case .result span + span::before { content: ""; }
 
       .crisis-block { padding: 1.2rem 1rem; border-radius: 14px; }
       .crisis-table { font-size: 0.8rem; }
@@ -388,8 +393,8 @@
       .goal-block { padding: 1.2rem 1rem; border-radius: 16px; }
 
       .contact-block { padding: 1.2rem 1rem; border-radius: 18px; flex-direction: column; gap: 1rem; text-align: center; }
-      .contact-block .info { font-size: 0.95rem; }
-      .contact-block > div { display: flex; gap: 0.6rem; justify-content: center; }
+      .contact-block .info { font-size: 0.95rem; line-height: 1.8; }
+      .contact-block > div { display: flex; gap: 0.6rem; justify-content: center; flex-wrap: wrap; }
       .btn { padding: 0.6rem 1.5rem; font-size: 0.9rem; }
       .btn-outline { padding: 0.5rem 1.3rem; font-size: 0.9rem; }
 
@@ -525,21 +530,21 @@
     <h4>🌨️ Строительство на Севере</h4>
     <div class="loc">📍 Ноябрьск · Магадан, 2021–2023</div>
     <p>Управление вахтовым методом в экстремальных условиях (вечная мерзлота, морозы до −50 °C). Полная ответственность за жизнедеятельность городка: быт, логистика, ОТ и ТБ. Обеспечил бесперебойное выполнение работ в условиях, где планы срываются каждый день.</p>
-    <p class="result">✅ Все объекты сданы в срок · ✅ 0 травм</p>
+    <p class="result"><span>✅ Все объекты сданы в срок</span><span>✅ 0 травм</span></p>
   </div>
 
   <div class="case">
     <h4>🏗️ Освещение трассы М12</h4>
     <div class="loc">📍 Москва, 2024</div>
     <p>Федеральный объект с госнадзором, множество субподрядчиков. Как руководитель ПТО обеспечивал полный цикл документооборота, координацию подрядчиков и защиту объёмов перед заказчиком. Документация — там, где тонут большинство проектов, — была закрыта идеально.</p>
-    <p class="result">✅ Все этапы сданы без замечаний · ✅ Штрафы отсутствуют</p>
+    <p class="result"><span>✅ Все этапы сданы без замечаний</span><span>✅ Штрафы отсутствуют</span></p>
   </div>
 
   <div class="case">
     <h4>⚡ Электрохаб «Лефортовский»</h4>
     <div class="loc">📍 Москва, 2024–2025</div>
     <p>Строительство объекта под ключ (10 портов, 1,2 МВт). Прошёл полный цикл: от монтажа до ввода в эксплуатацию. Сдал сложный инженерный объект в установленный срок.</p>
-    <p class="result">✅ Ввод в эксплуатацию · ✅ Выполнено в срок</p>
+    <p class="result"><span>✅ Ввод в эксплуатацию</span><span>✅ Выполнено в срок</span></p>
   </div>
 
   <div class="case">
